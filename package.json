@@ -1,7 +1,7 @@
 {
     "title": "FileTreeEditorLink",
     "name": "filetreeeditorlink",
-    "description": "Open files in the editor, then automatically find them and select them in the file tree.",
+    "description": "Open files in Brackets automatically expanding and selecting it the tree.",
     "version": "0.0.1",
     "author": "Miguel Castillo <mahchagnu@gmail.com>",
     "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeEditorLink",
