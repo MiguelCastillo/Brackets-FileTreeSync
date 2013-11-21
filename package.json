@@ -1,0 +1,15 @@
+{
+    "title": "FileTreeSync",
+    "name": "filetreesync",
+    "description": "Keep open files and the file tree in sync",
+    "version": "0.0.1",
+    "author": "Miguel Castillo <mahchagnu@gmail.com>",
+    "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeSync",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/MiguelCastillo/Brackets-FileTreeSync.git"
+    },
+    "engines": {
+        "brackets": ">=0.22.0"
+    }
+}
