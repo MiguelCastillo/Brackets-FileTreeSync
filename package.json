@@ -1,13 +1,13 @@
 {
-    "title": "FileTreeEditorLink",
-    "name": "filetreeeditorlink",
+    "title": "FileTreeSync",
+    "name": "filetreeeditorsync",
     "description": "Open files in Brackets automatically expanding and selecting it the tree.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "author": "Miguel Castillo <mahchagnu@gmail.com>",
-    "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeEditorLink",
+    "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeSync",
     "repository": {
         "type": "git",
-        "url": "git://github.com/MiguelCastillo/Brackets-FileTreeEditorLink.git"
+        "url": "git://github.com/MiguelCastillo/Brackets-FileTreeSync.git"
     },
     "engines": {
         "brackets": ">=0.22.0"
