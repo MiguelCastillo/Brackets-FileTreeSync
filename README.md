@@ -7,4 +7,4 @@ Link the File Tree with the Editor so that opening a document will automatically
 How to use
 =====================
 
-Go to the menu Navigate, and toggle "File Tree Sync"
+Go to the Navigate menu and toggle "File Tree Sync"
