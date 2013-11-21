@@ -1,13 +1,13 @@
 {
-    "title": "FileTreeSync",
-    "name": "filetreesync",
-    "description": "Keep open files and the file tree in sync",
+    "title": "FileTreeEditorLink",
+    "name": "filetreeeditorlink",
+    "description": "Open files in the editor, then automatically find them and select them in the file tree.",
     "version": "0.0.1",
     "author": "Miguel Castillo <mahchagnu@gmail.com>",
-    "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeSync",
+    "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeEditorLink",
     "repository": {
         "type": "git",
-        "url": "git://github.com/MiguelCastillo/Brackets-FileTreeSync.git"
+        "url": "git://github.com/MiguelCastillo/Brackets-FileTreeEditorLink.git"
     },
     "engines": {
         "brackets": ">=0.22.0"
