@@ -1,4 +1,4 @@
 Brackets-FileTreeSync
 =====================
 
-Keep your open files and tree in sync
+Link the File Tree with the Editor so that clicking on an open document or opening a document, the File Tree will automatically expand and select the file.
