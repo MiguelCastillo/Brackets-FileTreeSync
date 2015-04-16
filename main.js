@@ -41,8 +41,9 @@ define(function( require, exports, module ) {
   function initialize() {
     command.setChecked(prefs.get("enabled"));
     DocumentManager.on("currentDocumentChange", _.debounce(function() {
-      if (prefs.get("enabled")) {
-        ProjectManager.showInTree(DocumentManager.getCurrentDocument().file);
+      var doc = DocumentManager.getCurrentDocument();
+      if (prefs.get("enabled") &&  doc) {
+        ProjectManager.showInTree(doc.file);
       }
     }, 250));
   }
