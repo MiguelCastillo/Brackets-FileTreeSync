@@ -2,8 +2,8 @@
     "title": "FileTreeSync",
     "name": "filetreesync",
     "description": "Open files in Brackets automatically expanding and selecting it the source tree.",
-    "version": "0.0.2",
-    "author": "Miguel Castillo <mahchagnu@gmail.com>",
+    "version": "0.0.3",
+    "author": "Miguel Castillo <manchagnu@gmail.com>",
     "homepage": "https://github.com/MiguelCastillo/Brackets-FileTreeSync",
     "repository": {
         "type": "git",
