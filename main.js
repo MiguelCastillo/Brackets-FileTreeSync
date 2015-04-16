@@ -1,49 +1,52 @@
-/*
+/**
  * Copyright (c) 2013 Miguel Castillo.
+ *
  * Licensed under MIT
  */
 
-
 define(function( require, exports, module ) {
+  "use strict";
 
-  var AppInit             = brackets.getModule("utils/AppInit"),
-      DocumentManager     = brackets.getModule("document/DocumentManager"),
-      CommandManager      = brackets.getModule("command/CommandManager"),
-      PreferencesManager  = brackets.getModule("preferences/PreferencesManager"),
-      ProjectManager      = brackets.getModule("project/ProjectManager"),
-      Menus               = brackets.getModule("command/Menus"),
-      String              = brackets.getModule("strings");
+  var _                  = brackets.getModule("thirdparty/lodash");
+  var AppInit            = brackets.getModule("utils/AppInit");
+  var DocumentManager    = brackets.getModule("document/DocumentManager");
+  var Commands           = brackets.getModule("command/Commands");
+  var CommandManager     = brackets.getModule("command/CommandManager");
+  var PreferencesManager = brackets.getModule("preferences/PreferencesManager");
+  var ProjectManager     = brackets.getModule("project/ProjectManager");
+  var Menus              = brackets.getModule("command/Menus");
+  var PREFERENCES_KEY    = "brackets-filetree-sync";
+  var prefs              = PreferencesManager.getExtensionPrefs(PREFERENCES_KEY);
+  var menu               = Menus.getMenu(Menus.AppMenuBar.NAVIGATE_MENU);
+  var COMMAND_ID         = PREFERENCES_KEY;
+  var command            = CommandManager.register("File Tree Sync", COMMAND_ID, setEnabled);
 
-  var PREFERENCES_KEY = "extensions.brackets-filetreesync";
-  var preferences = PreferencesManager.getPreferenceStorage(PREFERENCES_KEY);
-  var enabled = preferences.getValue("enabled") === true;
-  var menu = Menus.getMenu(Menus.AppMenuBar.NAVIGATE_MENU);
-  var COMMAND_ID = "filetreesync.enable";
 
-  // Register menu event...
-  CommandManager.register("File Tree Sync", COMMAND_ID, function () {
-    enabled = !enabled;
-    preferences.setValue("enabled", enabled);
-    this.setChecked(enabled);
+  prefs.definePreference("enabled", "boolean", false).on("change", function() {
+    var value = prefs.get("enabled");
+    if (value !== command.getChecked()) {
+      command.setChecked(value);
+    }
   });
 
-  // Add menu
   menu.addMenuDivider();
   menu.addMenuItem(COMMAND_ID);
 
-  // Set value saved value in the menu
-  CommandManager.get("filetreesync.enable").setChecked(enabled);
 
-  // Make sure we persist the prefence value after we close brackets
-  preferences.setValue("enabled", enabled);
+  function setEnabled() {
+    prefs.set("enabled", !command.getChecked());
+  }
 
-  AppInit.appReady(function () {
-    $(DocumentManager).on("currentDocumentChange", function(evt) {
-      if ( enabled ) {
+
+  function initialize() {
+    command.setChecked(prefs.get("enabled"));
+    DocumentManager.on("currentDocumentChange", _.debounce(function() {
+      if (prefs.get("enabled")) {
         ProjectManager.showInTree(DocumentManager.getCurrentDocument().file);
       }
-    });
-  });
+    }, 250));
+  }
 
+
+  AppInit.appReady(initialize);
 });
-
