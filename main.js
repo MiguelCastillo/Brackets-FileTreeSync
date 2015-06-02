@@ -19,7 +19,9 @@ define(function( require, exports, module ) {
   var prefs              = PreferencesManager.getExtensionPrefs(PREFERENCES_KEY);
   var menu               = Menus.getMenu(Menus.AppMenuBar.NAVIGATE_MENU);
   var COMMAND_ID         = PREFERENCES_KEY;
-  var command            = CommandManager.register("File Tree Sync", COMMAND_ID, setEnabled);
+  var Strings            = require("strings");
+  var command            = CommandManager.register(Strings.MENU_SHOW_FILE_TREE_SYNC, COMMAND_ID, setEnabled);
+   
 
 
   prefs.definePreference("enabled", "boolean", false).on("change", function() {
